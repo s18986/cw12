@@ -1,0 +1,31 @@
+﻿@model IEnumerable<CW12.Models.Prescriptions>
+@{
+    ViewData["Title"] = "GetDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<table>
+    <tr>
+        <td>ID Pacjenta</td>
+        <td>ViewBag.Imie</td>
+    </tr>
+</table>
+<ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Pacjent</th>
+                <th>Lekarz</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        @foreach (var d in Model)
+        {
+            <tr>
+                <td>@d.IdPrescription</td>
+                <td>@d.IdDoctor</td>
+                <td><button>Usun</button></td>
+            </tr>
+        }
+    </table>
+</ul>
+

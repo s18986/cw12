@@ -1,0 +1,42 @@
+﻿@model IEnumerable<CW12.Models.Patients>
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<h1>Hello</h1>
+<p>
+    There
+</p>
+<h2>@ViewBag.Nazwisko</h2>
+<ul>
+    <table>
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(modelItem => modelItem.FirstName)</th>
+                <th>@Html.DisplayNameFor(modelItem => modelItem.LastName)</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        @foreach (var d in Model)
+        {
+       <tr>
+         <td>@d.FirstName</td>
+         <td>@d.LastName</td>
+         <td>
+             <form action="/patients/GetDetails">
+                 <input type="submit" value="Zobacz recepty" />
+             </form>
+             <form method="delete" action="/Patients/Delete">
+                 <input type="submit" value="usun doktora" data=@d />
+             </form>
+         </td>
+        </tr>
+        }
+        <tr>
+            <form action="/patients/Create">
+                <input type="submit" value="Dodaj pacjenta" />
+            </form>
+        </tr>
+    </table>
+</ul>
+
