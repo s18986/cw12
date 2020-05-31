@@ -19,12 +19,11 @@ namespace CW12.Controllers
             var temp = _context.Patients.ToList();
             return View(temp);
         }
-        public IActionResult GetDetails(Patients pat)
+        public IActionResult GetDetails(int id)
         {
             var db = new s18986Context();
-            var Recepty = db.Prescriptions.ToList().Where(d => d.IdPatient == pat.IdPatient);
-            ViewBag.Imie = pat.FirstName;
-            return View(Recepty);
+            var pacjent = db.Patients.FirstOrDefault(d => d.IdPatient == id);
+            return View(pacjent);
         }
         public IActionResult Create()
         {

@@ -23,11 +23,14 @@
          <td>@d.FirstName</td>
          <td>@d.LastName</td>
          <td>
-             <form action="/patients/GetDetails">
+             string addres = "/patients/GetDetails" + @d.IdPatient;
+             
+
+             <form action=addres>
                  <input type="submit" value="Zobacz recepty" />
              </form>
-             <form method="delete" action="/Patients/Delete">
-                 <input type="submit" value="usun doktora" data=@d />
+             <form method="delete" action="/patients/Delete">
+                 <input type="submit" value="Usun pacjenta" />
              </form>
          </td>
         </tr>

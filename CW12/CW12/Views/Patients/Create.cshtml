@@ -1,4 +1,4 @@
-﻿
+﻿@model CW12.Models.Patients
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,11 +9,13 @@
     <div class="row">
         <div class="input-field col s6">
             <label> Imie</label>
-            <input name="FirstName" type="text" />
+            @Html.EditorFor(d => d.FirstName);
+            <span>@Html.ValidationMessageFor(d => d.FirstName)</span>
         </div>
         <div class="input=field col s6">
             <label> Nazwisko</label>
-            <input name="LastName" type="text" />
+            @Html.EditorFor(d => d.LastName);
+            <span>@Html.ValidationMessageFor(d => d.LastName)</span>
         </div>
     </div>
     <input type="submit" value="Wyslij" class="btn" />
